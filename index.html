@@ -1,0 +1,124 @@
+<link href="style.css" rel="stylesheet" type="text/css"/>
+
+<body>
+<div>
+<div id="box-container-1">
+  <div id="box-1-1">
+    <div id="top-banner">
+    Technical Document
+    </div>
+  </div>
+  <div id="box-1-2">
+    <div id="top-nav" class="active">
+    <ul id="top-nav">
+    <li id="top-nav-list"><a class="active" href="https://github.com/rthomas529" target="_blank">Github</a></li>
+    <li id="top-nav-list"><a href="https://codepen.io/rthomas529/" target="_blank">CodePen</a></li>
+    <li id="top-nav-list"><a href="https://www.linkedin.com/in/ryan-l-thomas/" target="_blank">Linkedin</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+<div id="box-container-2">
+<div id="box-2">
+<div id="side-bar">
+<ul id="side-bar-list">
+  <li><a class="nav-link" href="#box-3-1" >XML Parser</a>
+  <li><a class="nav-link" href="#box-3-2">Card 2</a>
+</ul>
+
+</div>
+</div>
+
+<div id="box-3">
+  <div id="box-3-1">
+  <div class="card1" id="card1">
+    <h1>Parsing XML with SAX APIs</h1>
+    <p>SAX is a standard interface for event-driven XML parsing. Parsing XML with SAX generally requires you to create your own ContentHandler by subclassing xml.sax.ContentHandler.</p>
+    <p>Your ContentHandler handles the particular tags and attributes of your flavor(s) of XML.</p></div>
+    <div class="card">
+  <div id="box-3-1-1">
+    <h5>Example</h5>
+    <code>#!/usr/bin/python<br><br>
+
+import xml.sax<br><br>
+
+class MovieHandler( xml.sax.ContentHandler ):<br>
+   def __init__(self):<br>
+      self.CurrentData = ""<br>
+      self.type = ""<br><br>
+
+   # Call when an element starts<br>
+   def startElement(self, tag, attributes):<br>
+      self.CurrentData = tag<br>
+      if tag == "movie":<br>
+         print "*****Movie*****"<br>
+         title = attributes["title"]<br>
+         print "Title:", title<br><br>
+
+   # Call when an elements ends<br>
+   def endElement(self, tag):<br>
+      if self.CurrentData == "type":<br>
+         print "Type:", self.type<br>
+      elif self.CurrentData == "format":<br>
+         print "Format:", self.format<br><br>
+   
+   # Call when a character is read<br>
+   def characters(self, content):<br>
+      if self.CurrentData == "type":<br>
+         self.type = content<br>
+      elif self.CurrentData == "format":<br>
+         self.format = content<br><br>
+      
+if ( __name__ == "__main__"):<br><br>
+   
+   # create an XMLReader<br>
+   parser = xml.sax.make_parser()<br>
+   # turn off namepsaces<br>
+   parser.setFeature(xml.sax.handler.feature_namespaces, 0)<br><br>
+
+   # override the default ContextHandler<br>
+   Handler = MovieHandler()<br>
+   parser.setContentHandler( Handler )<br><br>
+   
+   parser.parse("movies.xml")</code><br><br></div>
+  <div id="box-3-1-2">
+    <h5>Sample XML</h5>
+      &lt;collection shelf="New Arrivals"&gt;<br>
+&lt;title="Enemy Behind"&gt;<br>
+   &lt;type&gt;War, Thriller&lt;/type&gt;<br>
+   &lt;format&gt;DVD&lt;/format&gt;<br>
+   &lt;year>2003&lt;/year&gt;<br>
+   &lt;rating&gt;PG&lt;/rating&gt;<br>
+   &lt;stars&gt;10&lt;/stars&gt;<br>
+   &lt;description&gt;Talk about a US-Japan war&lt;/description&gt;<br>
+&lt;/colection&gt;</div>
+</div>
+  <div class="card"><ul id="card_list">
+    <li>result</li><br>
+    <li>result</li><br>
+    <li>result</li><br>
+    </ul>
+    </div>
+    </div>
+  <div id="box-3-2">
+  <div class="card1">
+    <h1>Card 2</h1>
+    <p></p></p></div>
+    <div class="card">
+  <div id="box-3-2-1">
+    <h5>Example</h5>
+    <code></code><br><br></div>
+  <div id="box-3-2-2"></div>
+</div>
+  <div class="card"><ul id="card_list">
+    <li>result</li><br>
+    <li>result</li><br>
+    <li>result</li><br>
+    </ul>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+  <footer></footer>
+</body>
